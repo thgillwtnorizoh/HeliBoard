@@ -226,9 +226,7 @@ class ClipboardHistoryView @JvmOverloads constructor(
         keyboardActionListener.onReleaseKey(KeyCode.NOT_SPECIFIED, false)
 
         if (settings.mClipboardSendOnPaste) {
-            // Enter follows the current editor action, so this uses Send/Done/Search/etc.
-            // exactly like the normal enter/action key instead of hard-coding IME_ACTION_SEND.
-            keyboardActionListener.onCodeInput(Constants.CODE_ENTER, Constants.NOT_A_COORDINATE, Constants.NOT_A_COORDINATE, false)
+            keyboardActionListener.onEditorAction()
         }
 
         if (settings.mClipboardDeleteOnPaste)
