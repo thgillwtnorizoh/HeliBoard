@@ -155,6 +155,10 @@ class ClipboardHistoryManager(
             clipboardDao?.deleteClipAt(index)
     }
 
+    fun removeEntryById(id: Long) {
+        clipboardDao?.deleteClipById(id)
+    }
+
     fun sortHistoryEntries() {
         clipboardDao?.sort()
     }

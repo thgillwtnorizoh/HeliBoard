@@ -190,6 +190,12 @@ fun createPreferencesSettings(context: Context) = listOf(
     Setting(context, Settings.PREF_CLIPBOARD_HISTORY_PINNED_FIRST, R.string.clipboard_history_pinned_first) {
         SwitchPreference(it, Defaults.PREF_CLIPBOARD_HISTORY_PINNED_FIRST)
     },
+    Setting(context, Settings.PREF_CLIPBOARD_SEND_ON_PASTE, R.string.clipboard_send_on_paste, R.string.clipboard_send_on_paste_summary) {
+        SwitchPreference(it, Defaults.PREF_CLIPBOARD_SEND_ON_PASTE)
+    },
+    Setting(context, Settings.PREF_CLIPBOARD_DELETE_ON_PASTE, R.string.clipboard_delete_on_paste, R.string.clipboard_delete_on_paste_summary) {
+        SwitchPreference(it, Defaults.PREF_CLIPBOARD_DELETE_ON_PASTE)
+    },
     Setting(context, Settings.PREF_CLIPBOARD_USE_FILES, R.string.clipboard_history_files) {
         val ctx = LocalContext.current
         SwitchPreference(it, Defaults.PREF_CLIPBOARD_USE_FILES) {

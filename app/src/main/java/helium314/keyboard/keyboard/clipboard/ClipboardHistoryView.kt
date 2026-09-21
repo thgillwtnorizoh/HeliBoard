@@ -219,11 +219,22 @@ class ClipboardHistoryView @JvmOverloads constructor(
     }
 
     override fun onKeyUp(clipId: Long) {
+        val settings = Settings.getValues()
         val clipContent = clipboardHistoryManager.getHistoryEntryContent(clipId)
         if (clipContent?.filename != null) keyboardActionListener.onContent(clipContent.getContentInfo(context))
         else keyboardActionListener.onTextInput(clipContent?.text)
         keyboardActionListener.onReleaseKey(KeyCode.NOT_SPECIFIED, false)
-        if (Settings.getValues().mAlphaAfterClipHistoryEntry)
+
+        if (settings.mClipboardSendOnPaste) {
+            // Enter follows the current editor action, so this uses Send/Done/Search/etc.
+            // exactly like the normal enter/action key instead of hard-coding IME_ACTION_SEND.
+            keyboardActionListener.onCodeInput(Constants.CODE_ENTER, Constants.NOT_A_COORDINATE, Constants.NOT_A_COORDINATE, false)
+        }
+
+        if (settings.mClipboardDeleteOnPaste)
+            clipboardHistoryManager.removeEntryById(clipId)
+
+        if (settings.mAlphaAfterClipHistoryEntry)
             keyboardActionListener.onCodeInput(KeyCode.ALPHA, Constants.NOT_A_COORDINATE, Constants.NOT_A_COORDINATE, false)
     }
 

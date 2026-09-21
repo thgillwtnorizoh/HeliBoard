@@ -180,6 +180,13 @@ class ClipboardDao private constructor(private val db: Database) {
         delete(listOf(cache[index]))
     }
 
+    fun deleteClipById(id: Long) = synchronized(this) {
+        val index = cache.indexOfFirst { it.id == id }
+        if (index < 0 || cache[index].isPinned) return@synchronized
+        delete(listOf(cache[index]))
+        listener?.onClipsRemoved(index, 1)
+    }
+
     private fun delete(entries: List<ClipboardHistoryEntry>) = synchronized(this) {
         if (entries.isEmpty()) return@synchronized
         cache.removeAll(entries)

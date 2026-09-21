@@ -135,6 +135,8 @@ public class SettingsValues {
     public final boolean mAutoHideToolbar;
     public final boolean mAlphaAfterEmojiInEmojiView;
     public final boolean mAlphaAfterClipHistoryEntry;
+    public final boolean mClipboardSendOnPaste;
+    public final boolean mClipboardDeleteOnPaste;
     public final EnumSet<KeyboardState.Mode> mAlphaAfterSpace = EnumSet.noneOf(KeyboardState.Mode.class);
     public final boolean mRemoveRedundantPopups;
     public final String mSpaceBarText;
@@ -286,6 +288,8 @@ public class SettingsValues {
         mClipboardHistoryEnabled = prefs.getBoolean(Settings.PREF_ENABLE_CLIPBOARD_HISTORY, Defaults.PREF_ENABLE_CLIPBOARD_HISTORY);
         mClipboardHistoryRetentionTime = prefs.getInt(Settings.PREF_CLIPBOARD_HISTORY_RETENTION_TIME, Defaults.PREF_CLIPBOARD_HISTORY_RETENTION_TIME);
         mClipboardHistoryPinnedFirst = prefs.getBoolean(Settings.PREF_CLIPBOARD_HISTORY_PINNED_FIRST, Defaults.PREF_CLIPBOARD_HISTORY_PINNED_FIRST);
+        mClipboardSendOnPaste = prefs.getBoolean(Settings.PREF_CLIPBOARD_SEND_ON_PASTE, Defaults.PREF_CLIPBOARD_SEND_ON_PASTE);
+        mClipboardDeleteOnPaste = prefs.getBoolean(Settings.PREF_CLIPBOARD_DELETE_ON_PASTE, Defaults.PREF_CLIPBOARD_DELETE_ON_PASTE);
 
         mIsFloatingKeyboard = !mIsLocked && SettingsKt.isFloatingKeyboardEnabled(context);
         mFloatingWidth = SettingsKt.readFloatingWidth(context);

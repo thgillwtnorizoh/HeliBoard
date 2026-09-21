@@ -155,6 +155,8 @@ object Defaults {
     const val PREF_ENABLE_CLIPBOARD_HISTORY = true
     const val PREF_CLIPBOARD_HISTORY_RETENTION_TIME = 10 // minutes
     const val PREF_CLIPBOARD_HISTORY_PINNED_FIRST = true
+    const val PREF_CLIPBOARD_SEND_ON_PASTE = false
+    const val PREF_CLIPBOARD_DELETE_ON_PASTE = false
     const val PREF_CLIPBOARD_USE_FILES = true
     const val PREF_CLIPBOARD_FILES_SIZE_LIMIT = 20 // megabytes
     const val PREF_ADD_TO_PERSONAL_DICTIONARY = false
