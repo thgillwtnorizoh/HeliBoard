@@ -81,8 +81,8 @@ fun PreferencesScreen(
         if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_HISTORY_RETENTION_TIME else null,
         if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_HISTORY_PINNED_FIRST else null,
         if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_USE_FILES else null,
-        if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_SEND_ON_PASTE,
-        if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_DELETE_ON_PASTE,
+        if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_SEND_ON_PASTE else null,
+        if (clipboardHistoryEnabled) Settings.PREF_CLIPBOARD_DELETE_ON_PASTE else null,
         if (clipboardHistoryEnabled && prefs.getBoolean(Settings.PREF_CLIPBOARD_USE_FILES, Defaults.PREF_CLIPBOARD_USE_FILES))
             Settings.PREF_CLIPBOARD_FILES_SIZE_LIMIT else null,
     )
