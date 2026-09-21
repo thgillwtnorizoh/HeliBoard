@@ -65,6 +65,8 @@ public interface KeyboardActionListener {
     // TODO: change this to send an Event object instead
     void onCodeInput(int primaryCode, int x, int y, boolean isKeyRepeat);
 
+    void onEditorAction();
+
     /**
      * Sends a string of characters to the listener.
      *
@@ -143,6 +145,8 @@ public interface KeyboardActionListener {
         public boolean onKeyUp(int keyCode, KeyEvent keyEvent) { return false; }
         @Override
         public void onCodeInput(int primaryCode, int x, int y, boolean isKeyRepeat) {}
+        @Override
+        public void onEditorAction() {}
         @Override
         public void onTextInput(String text) {}
         @Override

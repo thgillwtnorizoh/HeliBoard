@@ -152,6 +152,10 @@ class KeyboardActionListenerImpl(private val latinIME: LatinIME, private val inp
         metaAfterCodeInput(primaryCode)
     }
 
+    override fun onEditorAction() {
+        inputLogic.performCurrentEditorAction()
+    }
+
     override fun onTextInput(text: String?) = latinIME.onTextInput(text)
 
     override fun onContent(content: InputContentInfoCompat) {
