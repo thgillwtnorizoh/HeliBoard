@@ -2123,14 +2123,16 @@ public final class InputLogic {
     }
 
     public void performCurrentEditorAction() {
-    final EditorInfo editorInfo = getCurrentInputEditorInfo();
-    final int imeOptionsActionId =
-            InputTypeUtils.getImeOptionsActionIdFromEditorInfo(editorInfo);
+        final EditorInfo editorInfo = getCurrentInputEditorInfo();
+        final int imeOptionsActionId =
+                InputTypeUtils.getImeOptionsActionIdFromEditorInfo(editorInfo);
 
-    if (InputTypeUtils.IME_ACTION_CUSTOM_LABEL == imeOptionsActionId) {
+        if (InputTypeUtils.IME_ACTION_CUSTOM_LABEL == imeOptionsActionId) {
             performEditorAction(editorInfo.actionId);
         } else if (EditorInfo.IME_ACTION_NONE != imeOptionsActionId) {
             performEditorAction(imeOptionsActionId);
+        } else {
+            sendDownUpKeyEvent(KeyEvent.KEYCODE_ENTER);
         }
     }
 
